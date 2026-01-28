@@ -165,8 +165,8 @@ Returns:
 
 Fills a memory block with a byte value.
 - `s` → memory block
-`c` → byte value
-`n` → number of bytes
+- `c` → byte value
+- `n` → number of bytes
 
 ---
 
