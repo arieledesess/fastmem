@@ -304,3 +304,6 @@ g++ main.cpp \
 - `-L` points to the directory containing `libfastmem.a`
 - `-lfastmem` links `libfastmem.a`
 - The order matters: source files first, then `-lfastmem`
+
+## License
+This project is licensed under the MIT License
