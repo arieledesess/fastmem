@@ -304,7 +304,7 @@ Copies a null-terminated string from `src` to `dst`.
 - `dst` → destination buffer
 - `src` → source string
 
-Returns pointer to `dst`.
+Returns a pointer to `dst`.
 
 ---
 
@@ -316,7 +316,7 @@ Copies up to `n` characters from `src` to `dst`.
 - `src` → source string
 - `n` → maximum number of characters
 
-Returns pointer to `dst`.
+Returns a pointer to `dst`.
 
 ---
 
@@ -338,7 +338,7 @@ Counts how many characters from the beginning of `s` match characters in `accept
 - `s` → string
 - `accept` → characters to match
 
-returns the count.
+Returns the count.
 
 ---
 
@@ -349,7 +349,7 @@ Counts characters from the start of `s` until a character from `reject` is found
 - `s` → string
 - `reject` → characters not allowed
 
-returns the count.
+Returns the count.
 
 ---
 
@@ -360,7 +360,7 @@ Finds the first occurrence in `s` of any character from `accept`.
 - `s` → string
 - `accept` → characters to search for
 
-Returns pointer or `NULL`.
+Returns a pointer to the first matching character, or `NULL` if none found.
 
 ---
 
