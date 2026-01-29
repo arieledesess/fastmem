@@ -355,7 +355,7 @@ returns the count.
 
 21. `char *fm_strpbrk(const char *s, const char *accept);`
 
-Finds the first occurrence in s of any character from accept.
+Finds the first occurrence in `s` of any character from `accept`.
 
 - `s` → string
 - `accept` → characters to search for
