@@ -1,18 +1,27 @@
 ; Developer: Sreeraj
 ; GitHub: https://github.com/s-r-e-e-r-a-j
 
-global fm_memset
+global fm_strncpy
 section .text
-fm_memset:
-    mov rax, rdi
-    mov al, sil
-.loop:
+fm_strncpy:
     test rdx, rdx
     jz .done
+.loop:
+    mov al, [rsi]
     mov [rdi], al
     inc rdi
+    inc rsi
     dec rdx
-    jmp .loop
+    test al, al
+    jz .pad
+    jnz .loop
+.pad:
+    test rdx, rdx
+    jz .done
+    mov byte [rdi], 0
+    inc rdi
+    dec rdx
+    jmp .pad
 .done:
     ret
 

@@ -22,3 +22,5 @@ fm_strcmp:
     movzx ebx, bl
     sub eax, ebx
     ret
+
+section .note.GNU-stack noalloc noexec nowrite

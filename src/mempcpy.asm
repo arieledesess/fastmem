@@ -1,24 +1,20 @@
 ; Developer: Sreeraj
 ; GitHub: https://github.com/s-r-e-e-r-a-j
 
-global fm_memrchr
+global fm_mempcpy
 section .text
-fm_memrchr:
+fm_mempcpy:
     test rdx, rdx
-    jz .notfound
-    lea rdi, [rdi+rdx-1]
+    jz .done
 .loop:
-    cmp byte [rdi], sil
-    je .found
-    dec rdi
+    mov al, [rsi]
+    mov [rdi], al
+    inc rsi
+    inc rdi
     dec rdx
     jnz .loop
-.notfound:
-    xor rax, rax
-    ret
-.found:
+.done:
     mov rax, rdi
     ret
-
 
 section .note.GNU-stack noalloc noexec nowrite

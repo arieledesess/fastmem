@@ -24,3 +24,5 @@ fm_memmove:
     call fm_memcpy
 .done:
     ret
+
+section .note.GNU-stack noalloc noexec nowrite

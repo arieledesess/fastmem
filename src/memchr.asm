@@ -18,3 +18,5 @@ fm_memchr:
 .notfound:
     xor rax, rax
     ret
+
+section .note.GNU-stack noalloc noexec nowrite

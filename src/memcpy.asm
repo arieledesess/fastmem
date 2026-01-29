@@ -16,3 +16,5 @@ fm_memcpy:
     jnz .loop
 .done:
     ret
+
+section .note.GNU-stack noalloc noexec nowrite

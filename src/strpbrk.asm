@@ -1,22 +1,36 @@
 ; Developer: Sreeraj
 ; GitHub: https://github.com/s-r-e-e-r-a-j
 
-global fm_strchr
+global fm_strpbrk
 section .text
-fm_strchr:
-.loop:
+fm_strpbrk:
+.outer:
     mov al, [rdi]
-    cmp al, sil
-    je .found
     test al, al
-    je .notfound
+    jz .null
+
+    mov rcx, rsi
+
+.inner:
+    mov bl, [rcx]
+    test bl, bl
+    jz .next
+    cmp al, bl
+    je .found
+    inc rcx
+    jmp .inner
+
+.next:
     inc rdi
-    jmp .loop
+    jmp .outer
+
 .found:
     mov rax, rdi
     ret
-.notfound:
+
+.null:
     xor rax, rax
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
+

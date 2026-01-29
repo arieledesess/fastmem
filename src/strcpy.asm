@@ -1,17 +1,17 @@
 ; Developer: Sreeraj
 ; GitHub: https://github.com/s-r-e-e-r-a-j
 
-global fm_strlen
+global fm_strcpy
 section .text
-fm_strlen:
-    xor rcx, rcx
+fm_strcpy:
 .loop:
-    cmp byte [rdi+rcx], 0
-    je .done
-    inc rcx
-    jmp .loop
-.done:
-    mov rax, rcx
+    mov al, [rsi]
+    mov [rdi], al
+    inc rsi
+    inc rdi
+    test al, al
+    jnz .loop
+    mov rax, rdi
     ret
 
 section .note.GNU-stack noalloc noexec nowrite
