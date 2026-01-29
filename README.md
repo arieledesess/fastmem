@@ -295,6 +295,12 @@ Compares up to `n` characters of two strings.
 - `a`, `b` → strings
 - `n` → max characters
 
+Returns:
+
+- `0` if equal
+- `< 0` if `a < b`
+- `> 0` if `a > b`
+
 ---
 
 16. `char *fm_strcpy(char *dst, const char *src);`
