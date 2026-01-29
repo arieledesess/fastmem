@@ -269,7 +269,7 @@ project/
 
 int main(void) {
     char buf[64];
-    fastmem_memset(buf, 0, sizeof(buf));
+    fm_memset(buf, 0, sizeof(buf));
     return 0;
 }
 ```
@@ -290,7 +290,7 @@ gcc main.c \
 
 int main() {
     char buf[64];
-    fastmem_memset(buf, 0, sizeof(buf));
+    fm_memset(buf, 0, sizeof(buf));
     return 0;
 }
 ```
