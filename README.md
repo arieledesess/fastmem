@@ -185,6 +185,7 @@ Searches for the first occurrence of byte `c` in memory.
 - `s` → memory block
 - `c` → byte to search
 - `n` → number of bytes
+
 Returns pointer to the byte or `NULL.`
 
 ---
@@ -195,6 +196,7 @@ Searches for the last occurrence of byte `c` in memory.
 - `s` → memory block
 - `c` → byte to search
 - `n` → number of bytes
+
 Returns pointer or `NULL.`
 
 ---
@@ -203,6 +205,7 @@ Returns pointer or `NULL.`
 
 Returns the length of a null-terminated string.
 - `s` → string
+
 Does not include the null terminator.
 
 ---
@@ -220,6 +223,7 @@ Returns the length of a string, limited to n characters.
 Finds the first occurrence of character `c` in a string.
 - `s` → string
 - `c` → character
+
 Returns pointer or NULL.
 
 ---
