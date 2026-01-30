@@ -10,6 +10,7 @@
 extern "C" {
 #endif
 
+/* Memory functions */
 void *fm_memcpy(void *dst, const void *src, size_t n);
 void *fm_memmove(void *dst, const void *src, size_t n);
 int fm_memcmp(const void *a, const void *b, size_t n);
@@ -19,6 +20,8 @@ void *fm_memchr(const void *s, int c, size_t n);
 void *fm_memrchr(const void *s, int c, size_t n);
 void *fm_mempcpy(void *dst, const void *src, size_t n);
 void *fm_memccpy(void *dst, const void *src, int c, size_t n);
+void *fm_memset_s(void *s, int c, size_t n);
+void fm_memxor(void *dst, const void *src, size_t n);
 
 size_t fm_strlen(const char *s);
 size_t fm_strnlen(const char *s, size_t n);
@@ -32,6 +35,12 @@ char *fm_stpcpy(char *dst, const char *src);
 size_t fm_strspn(const char *s, const char *accept);
 size_t fm_strcspn(const char *s, const char *reject);
 char *fm_strpbrk(const char *s, const char *accept);
+char *fm_strcat(char *dst, const char *src);
+char *fm_strncat(char *dst, const char *src, size_t n);
+char *fm_strstr(const char *haystack, const char *needle);
+char *fm_strrev(char *s);
+size_t fm_strcount(const char *s, int c);
+int fm_strcmp_i(const char *a, const char *b);
 
 #ifdef __cplusplus
 }
