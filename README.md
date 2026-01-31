@@ -296,7 +296,42 @@ No value is returned.
 
 ---
 
-12. `size_t fm_strlen(const char *s);`
+12. `int fm_memdiff(const void *a, const void *b, size_t n);`
+
+Finds the first differing byte between two memory blocks.
+- `a` → first memory block
+- `b` → second memory block
+- `n` → number of bytes to compare
+  
+Returns the zero-based index of the first differing byte, or `-1` if both blocks are identical.
+
+---
+
+13. `int fm_timingsafe_memcmp(const void *a, const void *b, size_t n);`
+
+Compares two memory blocks in constant time.
+- `a` → first memory block
+- `b` → second memory block
+- `n` → number of bytes to compare
+
+Returns `0` if both blocks are equal, or non-zero if they differ.
+Execution time does not depend on the contents of memory.
+
+---
+
+14. `void *fm_memmem(const void *haystack, size_t haystack_len, const void *needle, size_t needle_len);`
+
+Searches for the first occurrence of a memory block within another memory block.
+- `haystack` → memory block to search in
+- `haystack_len` → size of haystack in bytes
+- `needle` → memory block to search for
+- `needle_len` → size of needle in bytes
+
+Returns a pointer to the first occurrence of `needle` in `haystack`, or `NULL` if not found.
+
+---
+
+15. `size_t fm_strlen(const char *s);`
 
 Returns the length of a null-terminated string.
 - `s` → string
@@ -305,7 +340,7 @@ Does not include the null terminator.
 
 ---
 
-13. `size_t fm_strnlen(const char *s, size_t n);`
+16. `size_t fm_strnlen(const char *s, size_t n);`
 
 Returns the length of a string, limited to n characters.
 - `s` → string
@@ -313,7 +348,7 @@ Returns the length of a string, limited to n characters.
 
 ---
 
-14. `char *fm_strchr(const char *s, int c);`
+17. `char *fm_strchr(const char *s, int c);`
 
 Finds the first occurrence of character `c` in a string.
 - `s` → string
@@ -323,7 +358,7 @@ Returns a pointer to the first occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
-15. `char *fm_strrchr(const char *s, int c);`
+18. `char *fm_strrchr(const char *s, int c);`
 
 Finds the last occurrence of character `c` in a string.
 - `s` → string
@@ -333,7 +368,7 @@ Returns a pointer to the last occurrence of `c` in `s`, or `NULL` if not found.
 
 ---
 
-16. `int fm_strcmp(const char *a, const char *b);`
+19. `int fm_strcmp(const char *a, const char *b);`
 
 Compares two strings.
 - `a`, `b` → strings
@@ -345,7 +380,7 @@ Returns:
 
 ---
 
-17. `int fm_strncmp(const char *a, const char *b, size_t n);`
+20. `int fm_strncmp(const char *a, const char *b, size_t n);`
 
 Compares up to `n` characters of two strings.
 - `a`, `b` → strings
@@ -359,7 +394,7 @@ Returns:
 
 ---
 
-18. `char *fm_strcpy(char *dst, const char *src);`
+21. `char *fm_strcpy(char *dst, const char *src);`
  
 Copies a null-terminated string from `src` to `dst`.
 
@@ -370,7 +405,7 @@ Returns a pointer to `dst`.
 
 ---
 
-19. `char *fm_strncpy(char *dst, const char *src, size_t n);`
+22. `char *fm_strncpy(char *dst, const char *src, size_t n);`
 
 Copies up to `n` characters from `src` to `dst`.
 
@@ -382,7 +417,7 @@ Returns a pointer to `dst`.
 
 ---
 
-20. `char *fm_stpcpy(char *dst, const char *src);`
+23. `char *fm_stpcpy(char *dst, const char *src);`
 
 Copies a null-terminated string from `src` to `dst`.
 
@@ -393,7 +428,7 @@ Returns pointer to the null terminator in `dst`.
 
 ---
 
-21. `size_t fm_strspn(const char *s, const char *accept);`
+24. `size_t fm_strspn(const char *s, const char *accept);`
 
 Counts how many characters from the beginning of `s` match characters in `accept`.
 
@@ -404,7 +439,7 @@ Returns the count.
 
 ---
 
-22. `size_t fm_strcspn(const char *s, const char *reject);`
+25. `size_t fm_strcspn(const char *s, const char *reject);`
 
 Counts characters from the start of `s` until a character from `reject` is found.
 
@@ -415,7 +450,7 @@ Returns the count.
 
 ---
 
-23. `char *fm_strpbrk(const char *s, const char *accept);`
+26. `char *fm_strpbrk(const char *s, const char *accept);`
 
 Finds the first occurrence in `s` of any character from `accept`.
 
@@ -426,7 +461,7 @@ Returns a pointer to the first matching character, or `NULL` if none found.
 
 ---
 
-24. `char *fm_strcat(char *dst, const char *src);`
+27. `char *fm_strcat(char *dst, const char *src);`
 
 Appends the string `src` to the end of `dst`.
 - `dst` → destination string (must have enough space)
@@ -436,7 +471,7 @@ Returns the original pointer `dst`.
 
 ---
 
-25. `char *fm_strncat(char *dst, const char *src, size_t n);`
+28. `char *fm_strncat(char *dst, const char *src, size_t n);`
 
 Appends at most `n` characters from `src` to `dst`.
 - `dst` → destination string (must have enough space)
@@ -447,7 +482,7 @@ Returns the original pointer `dst`.
 
 ---
 
-26. `char *fm_strstr(const char *haystack, const char *needle);`
+29. `char *fm_strstr(const char *haystack, const char *needle);`
 
 Finds the first occurrence of the string `needle` in `haystack`.
 
@@ -458,7 +493,7 @@ Returns a pointer to the first occurrence, or `NULL` if not found.
 
 ---
 
-27. `char *fm_strrev(char *s);`
+30. `char *fm_strrev(char *s);`
 
 Reverses the string `s` in place.
 
@@ -468,7 +503,7 @@ Returns the original pointer `s`.
 
 ---
 
-28. `size_t fm_strcount(const char *s, int c);`
+31. `size_t fm_strcount(const char *s, int c);`
 
 Counts the number of occurrences of character `c` in the string `s`.
 
@@ -479,7 +514,7 @@ Returns the number of occurrences.
 
 ---
 
-29. `int fm_strcmp_i(const char *a, const char *b);`
+32. `int fm_strcmp_i(const char *a, const char *b);`
 
 Compares two strings case-insensitively.
 - `a` → first string
@@ -489,6 +524,25 @@ Returns:
 - `0` if equal
 - `< 0` if `a < b`
 - `> 0` if `a > b`
+
+---
+
+33. `int fm_strstartswith(const char *str, const char *prefix);`
+
+Checks whether a string starts with a given prefix.
+- `str` → input string
+- `prefix` → prefix to test
+
+Returns `1` if `str` starts with `prefix`, otherwise `0`.
+
+---
+
+34. `int fm_strendswith(const char *str, const char *suffix);`
+
+Checks whether a string ends with a given suffix.
+- `str` → input string
+- `suffix` → suffix to test
+Returns `1` if `str` ends with `suffix`, otherwise `0`.
 
 ---
 
