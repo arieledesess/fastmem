@@ -544,6 +544,7 @@ Returns `1` if `str` starts with `prefix`, otherwise `0`.
 Checks whether a string ends with a given suffix.
 - `str` → input string
 - `suffix` → suffix to test
+
 Returns `1` if `str` ends with `suffix`, otherwise `0`.
 
 ---
