@@ -327,7 +327,9 @@ Searches for the first occurrence of a memory block within another memory block.
 - `needle` → memory block to search for
 - `needle_len` → size of needle in bytes
 
-Returns a pointer to the first occurrence of `needle` in `haystack`, or `NULL` if not found.
+Returns a pointer to the first occurrence of `needle` in `haystack`.
+If `needle_len` is `0`, returns `haystack`.
+Returns `NULL` if needle is not found.
 
 ---
 
