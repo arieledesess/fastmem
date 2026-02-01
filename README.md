@@ -597,11 +597,12 @@ Returns a pointer to the matched character, or `NULL` if not found.
 
 38. `char *fm_strnrev(char *s, size_t n);`
 
-Reverses the first `n` characters of string `s` in place.
-- `s` → pointer to the string
-- `n` → number of characters to reverse
+Reverses the first `n` bytes of string `s` in place.
 
-Characters beyond `n` remain unchanged.
+- `s` → pointer to the string (or buffer)
+- `n` → number of bytes to reverse
+  
+Reverses exactly `n` bytes. does NOT stop at the null terminator.
 
 Returns the original pointer `s`.
 
