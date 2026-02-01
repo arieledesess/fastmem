@@ -587,7 +587,7 @@ Returns `1` if `str` ends with `suffix`, otherwise `0`.
 Searches for the first occurrence of character `c` in string `s`, examining at most `n` bytes.
 - `s` → pointer to the string
 - `c` → character to search for
-`n` → maximum number of bytes to scan
+- `n` → maximum number of bytes to scan
 
 Stops early if a null terminator is encountered.
 
