@@ -382,7 +382,7 @@ Returns the original pointer `s`.
 
 17. `int fm_memhas(const void *buf, size_t len, unsigned char byte);`
 
-Checks whether a given byte exists in a memory block.
+Checks whether a given `byte` exists in a memory block.
 
 - `buf` → pointer to memory buffer
 - `len` → number of bytes to examine
