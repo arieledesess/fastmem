@@ -146,7 +146,7 @@ It is designed to be used from C and C++ programs, offering fast, low‑level im
 git clone https://github.com/s-r-e-e-r-a-j/fastmem.git
 cd fastmem
 ```
-A `setup.sh` script is provided to **check, install NASM and make, and automatically build the library**.
+A `setup.sh` script is provided to **check for NASM and make**, install them if missing, and **build the library automatically**.
 
 Supported distributions:
 - Debian / Ubuntu
