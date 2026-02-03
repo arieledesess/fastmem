@@ -756,8 +756,8 @@ Checks if string `s` starts with `prefix` within the first `n` characters.
 - `n` → maximum number of characters to consider
 
 Returns:
-`1` → `s` starts with `prefix`
-`0` → otherwise
+- `1` → `s` starts with `prefix`
+- `0` → otherwise
 
 ---
 
